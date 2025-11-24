@@ -9,9 +9,13 @@ pipeline {
             }
         }
         
-        stage('Download Google Test') {
+        stage('Download NuGet and Google Test') {
             steps {
-                bat ' "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\NuGet\\NuGet.exe" install Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn -Version 1.8.1.7 -OutputDirectory packages '
+                // Завантажити NuGet
+                bat 'curl -o nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe'
+                
+                // Встановити Google Test
+                bat 'nuget.exe install Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn -Version 1.8.1.7 -OutputDirectory packages'
             }
         }
         
