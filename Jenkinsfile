@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'http://192.168.0.202:3000/Dmytro/Linux-4.git', credentialsId: 'linux-kursovs'
+                git url: 'https://github.com/kostenkodmitro98-cmyk/Linux-4', credentialsId: 'linux-kursovs'
             }
         }
         
