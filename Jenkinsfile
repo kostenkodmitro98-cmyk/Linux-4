@@ -9,9 +9,9 @@ pipeline {
             }
         }
         
-        stage('NuGet Restore') {
+        stage('Download Google Test') {
             steps {
-                bat ' "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe" test_repos.sln /t:restore /p:Configuration=Debug /p:Platform=x64 /p:WindowsTargetPlatformVersion=10.0 '
+                bat ' "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\NuGet\\NuGet.exe" install Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn -Version 1.8.1.7 -OutputDirectory packages '
             }
         }
         
